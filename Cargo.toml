@@ -1,0 +1,11 @@
+[package]
+name = "google-course"
+version = "0.1.0"
+edition = "2024"
+
+[lints.rust]
+dead_code = "allow"
+
+[dependencies]
+tracing = "0.1.41"
+tracing-subscriber = "0.3.19"
