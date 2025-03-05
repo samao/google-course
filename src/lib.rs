@@ -14,6 +14,13 @@ mod math_agi;
 
 pub use math_agi::*;
 
+mod generics;
+
+pub use generics::*;
+
+mod std_api;
+pub use std_api::*;
+
 pub fn math_agi_run_proxy() {
     math_agi_run();
 }

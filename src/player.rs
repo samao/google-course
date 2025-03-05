@@ -16,7 +16,10 @@ struct Effect {
 enum PlayerMove {
     Pass,
     Run(Direction),
-    Teleport { x: u32, y: u32 },
+    Teleport {
+        x: u32,
+        y: u32,
+    },
     Attack {
         effect: Effect,
         position: (u32, u32),
@@ -51,7 +54,7 @@ pub fn player_run() {
                 continues: false,
             },
             position: (1, 2),
-        }
+        },
     ];
 
     for item in actions.iter() {
@@ -61,17 +64,37 @@ pub fn player_run() {
             PlayerMove::Run(direction) => info!("run {:?}", direction),
             PlayerMove::Teleport { x: xpos @ ..50, y } => {
                 info!("teleport to small xpos {:?}, {:?}", xpos, y)
-            },
+            }
             PlayerMove::Teleport { x, y } => info!("teleport to {:?}, {:?}", x, y),
-            PlayerMove::Attack { effect: Effect { damage: dmg @ ..=30, .. }, .. } => {
+            PlayerMove::Attack {
+                effect:
+                    Effect {
+                        damage: dmg @ ..=30,
+                        ..
+                    },
+                ..
+            } => {
                 info!("attack damage {} < 30 too weak!", dmg);
-            },
-            PlayerMove::Attack { effect: Effect { damage, continues: true }, .. } => {
+            }
+            PlayerMove::Attack {
+                effect:
+                    Effect {
+                        damage,
+                        continues: true,
+                    },
+                ..
+            } => {
                 info!("continues loss hp attack damage {:?}", damage)
-            },
-            PlayerMove::Attack { effect: effect @ Effect { damage, continues }, ..} => {
-                info!("attack {:?} damage {:?} continues loss hp: {}", effect, damage, continues)
-            },
+            }
+            PlayerMove::Attack {
+                effect: effect @ Effect { damage, continues },
+                ..
+            } => {
+                info!(
+                    "attack {:?} damage {:?} continues loss hp: {}",
+                    effect, damage, continues
+                )
+            }
         }
     }
 }

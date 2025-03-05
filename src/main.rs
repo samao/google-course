@@ -1,4 +1,6 @@
-use google_course::{elevator_run, math_agi_run_proxy, math_run, player_run, trait_run};
+use google_course::{
+    elevator_run, generics_run, math_agi_run_proxy, math_run, player_run, std_api_run, trait_run,
+};
 use tracing::{Level, info, instrument};
 use tracing_subscriber::FmtSubscriber;
 
@@ -10,12 +12,12 @@ fn main() {
         .finish();
 
     tracing::subscriber::set_global_default(subscriber).expect("setting default subscriber failed");
-
     info!("This is the main function");
     player_run();
     elevator_run();
     math_run();
     math_agi_run_proxy();
-
     trait_run();
+    generics_run();
+    std_api_run();
 }

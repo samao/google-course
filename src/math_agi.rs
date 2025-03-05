@@ -37,18 +37,30 @@ fn eval(e: Expression) -> Result<i64, String> {
             let left = eval(*left)?;
             let right = eval(*right)?;
             Ok(left + right)
-        },
-        Expression::Op { op:Operation::Multiply, left, right } => {
+        }
+        Expression::Op {
+            op: Operation::Multiply,
+            left,
+            right,
+        } => {
             let left = eval(*left)?;
             let right = eval(*right)?;
             Ok(left * right)
-        },
-        Expression::Op { op:Operation::Subtract, left, right } => {
+        }
+        Expression::Op {
+            op: Operation::Subtract,
+            left,
+            right,
+        } => {
             let left = eval(*left)?;
             let right = eval(*right)?;
             Ok(left - right)
-        },
-        Expression::Op { op:Operation::Divide, left, right } => {
+        }
+        Expression::Op {
+            op: Operation::Divide,
+            left,
+            right,
+        } => {
             let left = eval(*left)?;
             let right = eval(*right)?;
             if right == 0 {
