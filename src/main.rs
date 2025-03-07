@@ -1,6 +1,6 @@
 use google_course::{
-    borrow, btree_run, drop_release, elevator_run, generics_run, math_agi_run_proxy, math_run,
-    player_run, std_api_run, trait_run,
+    borrow, btree_run, drop_release, elevator_run, generics_run, lifetime, math_agi_run_proxy,
+    math_run, player_run, std_api_run, trait_run,
 };
 use tracing::{Level, info, instrument};
 use tracing_subscriber::FmtSubscriber;
@@ -25,4 +25,5 @@ fn main() {
 
     btree_run();
     borrow::borrow_run();
+    lifetime::lifetime_run();
 }
