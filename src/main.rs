@@ -1,5 +1,6 @@
 use google_course::{
-    elevator_run, generics_run, math_agi_run_proxy, math_run, player_run, std_api_run, trait_run,
+    borrow, btree_run, drop_release, elevator_run, generics_run, math_agi_run_proxy, math_run,
+    player_run, std_api_run, trait_run,
 };
 use tracing::{Level, info, instrument};
 use tracing_subscriber::FmtSubscriber;
@@ -20,4 +21,8 @@ fn main() {
     trait_run();
     generics_run();
     std_api_run();
+    drop_release();
+
+    btree_run();
+    borrow::borrow_run();
 }

@@ -21,6 +21,15 @@ pub use generics::*;
 mod std_api;
 pub use std_api::*;
 
+mod drop_release;
+pub use drop_release::*;
+
+mod btree;
+pub use btree::*;
+
+mod book;
+pub use book::*;
+
 pub fn math_agi_run_proxy() {
     math_agi_run();
 }

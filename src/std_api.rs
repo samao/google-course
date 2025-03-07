@@ -14,6 +14,15 @@ pub fn std_api_run() {
     }) {
         info!("key is equal")
     }
+
+    let key2 = Key {
+        id: 2,
+        metadata: Some("".into()),
+    };
+
+    if key < key2 {
+        info!("key {:?} is less than key2 {:?}", key, key2)
+    }
 }
 
 #[derive(Debug)]
