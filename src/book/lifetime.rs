@@ -33,6 +33,26 @@ pub fn lifetime_run() {
     info!("minus_point tuple {:?}", minus_point);
     let minus_point = minus_point - Point { x: 10, y: 10 };
     info!("minus_point2 {:?}", minus_point);
+    let doc = "Hello world!".to_owned();
+    let highlight = Highlight(&doc[0..5]);
+    let highlight2 = Highlight(&doc[6..11]);
+    info!("highlight {:?}", highlight);
+    // erase(doc); // error: cannot move out of borrowed content
+    info!("highlight2 {:?}", highlight2);
+    erase(doc);
+
+    let mut a = vec![1, 2, 3, 4, 5];
+    a.push(10);
+    let b = &mut a[0..2];
+    b[0] = 100;
+    info!("b {:?}", b);
+    info!("a {:?}", a);
+}
+
+#[derive(Debug)]
+struct Highlight<'doc>(&'doc str);
+fn erase(text: String) {
+    info!("erase {:?}", text);
 }
 
 impl Drop for Point {

@@ -7,5 +7,6 @@ edition = "2024"
 dead_code = "allow"
 
 [dependencies]
+thiserror = "2.0.12"
 tracing = "0.1.41"
 tracing-subscriber = "0.3.19"

@@ -26,7 +26,7 @@ pub fn borrow_run() {
     subtree.borrow_mut().children.push(Node::new(14));
     subtree.borrow_mut().children.push(Node::new(15));
     root.borrow_mut().children.push(subtree);
-    info!("root is {:?}", root);
+    // info!("root is {:?}", root);
     info!("root sum is {}", dbg!(root).borrow().sum());
 
     let celld = Cell::new(10);
