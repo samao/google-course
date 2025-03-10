@@ -30,6 +30,9 @@ pub use btree::*;
 mod book;
 pub use book::*;
 
+mod gui;
+pub use gui::*;
+
 pub fn math_agi_run_proxy() {
     math_agi_run();
 }
