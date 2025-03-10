@@ -1,6 +1,7 @@
 use google_course::{
-    borrow, btree_run, drop_release, elevator_run, generics_run, gui_run, iterator::iterator_run,
-    lifetime, math_agi_run_proxy, math_run, player_run, proto, std_api_run, trait_run,
+    borrow, btree_run, drop_release, elevator_run, error_api::error_api, generics_run, gui_run,
+    iterator::iterator_run, lifetime, math_agi_run_proxy, math_run, player_run, proto, std_api_run,
+    trait_run,
 };
 use tracing::{Level, info, instrument};
 use tracing_subscriber::FmtSubscriber;
@@ -30,5 +31,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     iterator_run();
     gui_run();
+    error_api();
     Ok(())
 }
